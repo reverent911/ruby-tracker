@@ -1,0 +1,20 @@
+<div id="login">
+	<%= form_for @user, :as => :user, :url => '/dologin' , :html => {:class => "form-signin"}  do |f| %>
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <%= f.text_field :username, :class => "input-block-level", :placeholder => "Email address" %>
+        <%= f.password_field :password, :class => "input-block-level", :placeholder => "Password" %>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+      <% end %>
+      
+        <% flash.each do |name, msg| %>
+        <div class="alert alert-<%="#{name}"%> alert-block">
+        	<a class="close" data-dismiss="alert" href="#">&times;</a>
+        	<h4 class="alert-heading"><%="#{name}"%>!</h4>
+		<%= content_tag :p, msg, :id => "flash" %>
+		</div>
+		<% end %>
+
+</div>
